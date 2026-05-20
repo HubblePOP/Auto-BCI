@@ -22,6 +22,7 @@ def test_public_files_do_not_use_legacy_demo_language() -> None:
     }
     searchable_roots = [
         ROOT / "README.md",
+        ROOT / "README.zh-CN.md",
         ROOT / "AGENTS.md",
         ROOT / "src",
         ROOT / "dashboard",
@@ -49,3 +50,12 @@ def test_generated_artifacts_are_gitignored() -> None:
     assert ".venv/" in ignore
     assert "__pycache__/" in ignore
     assert "provider_secrets.toml" in ignore
+
+
+def test_readmes_link_to_each_language_version() -> None:
+    english = (ROOT / "README.md").read_text(encoding="utf-8")
+    chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
+    assert "[简体中文](README.zh-CN.md)" in english
+    assert "[English](README.md)" in chinese
+    assert "documentation only" in english
+    assert "文档语言切换" in chinese

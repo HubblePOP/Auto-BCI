@@ -1,11 +1,21 @@
 # Auto-BCI
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 A local harness for verifiable agent research loops.
 
 Auto-BCI lets coding agents work inside bounded tasks, then verifies the work
 with fixed evaluators, ledgers, reports, and reproducible artifacts. The first
 public MVP is deliberately small: one built-in classifier task, a JSON-first CLI,
 local artifacts, and a dashboard projection.
+
+## Language
+
+GitHub opens `README.md` by default, so the English version is the landing page.
+Open [README.zh-CN.md](README.zh-CN.md) for the simplified Chinese version.
+
+This switch is for documentation only. The MVP CLI and dashboard are still kept
+minimal and may not translate every runtime label yet.
 
 ## Install
 
