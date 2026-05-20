@@ -1,0 +1,17 @@
+{
+  "task_id": "builtin-classifier",
+  "title": "Built-in Classifier",
+  "task_type": "classification_binary",
+  "primary_metric": "accuracy",
+  "split_policy": "fixed train/test split from packaged fixture",
+  "allowed_actions": [
+    "run deterministic baseline",
+    "evaluate fixed test split",
+    "write ledger and report"
+  ],
+  "forbidden_actions": [
+    "change primary metric during a run",
+    "change split during a run",
+    "rewrite generated artifacts by hand"
+  ]
+}
