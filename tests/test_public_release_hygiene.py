@@ -59,3 +59,11 @@ def test_readmes_link_to_each_language_version() -> None:
     assert "[English](README.md)" in chinese
     assert "documentation only" in english
     assert "文档语言切换" in chinese
+
+
+def test_dashboard_keeps_mvp_components_and_visual_asset() -> None:
+    dashboard = (ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
+    for token in ('fetch("/status.json"', 'id="run-id"', 'id="task-id"', 'id="metric"', 'id="artifacts"', 'id="raw"'):
+        assert token in dashboard
+    assert "water_lilies_japanese_bridge.jpg" in dashboard
+    assert (ROOT / "dashboard" / "assets" / "water_lilies_japanese_bridge.jpg").exists()
